@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concept Video Finder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="sidepanel.css">
+</head>
+<body>
+  
+  <div id="setup-view" class="view">
+    <div class="glass-card">
+      <h2>Welcome!</h2>
+      <p>To use the Concept Video Finder, please set your Gemini API Key in the extension options.</p>
+      <button id="open-options">Open Options</button>
+    </div>
+  </div>
+
+  <div id="empty-view" class="view active">
+    <div class="empty-state">
+      <div class="icon-pulse">
+        <svg fill="currentColor" viewBox="0 0 24 24" class="search-icon"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h2>Highlight & Find</h2>
+      <p>Highlight any educational concept on a webpage or PDF, right-click, and select <strong>Find Video</strong> to discover great learning resources.</p>
+    </div>
+  </div>
+
+  <div id="loading-view" class="view">
+    <div class="loader-container">
+      <div class="spinner"></div>
+      <p class="pulse-text">Analyzing concept and finding videos...</p>
+    </div>
+  </div>
+
+  <div id="error-view" class="view">
+    <div class="glass-card error-card">
+      <h2 id="error-title">Error</h2>
+      <p id="error-message">Something went wrong.</p>
+    </div>
+  </div>
+
+  <div id="results-view" class="view">
+    <header class="concept-header">
+      <span class="badge">Concept Found</span>
+      <h1 id="concept-title">Concept Title</h1>
+      <p id="concept-summary" class="summary">Summary of the concept goes here.</p>
+    </header>
+
+    <div class="videos-container">
+      <h3 class="section-title">Recommended Videos</h3>
+      <div id="video-list">
+        <!-- Video cards will be injected here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Template for a video card -->
+  <template id="video-card-template">
+    <a href="#" target="_blank" class="video-card" rel="noopener noreferrer">
+      <div class="video-thumbnail-placeholder">
+        <svg fill="currentColor" viewBox="0 0 20 20" class="play-icon"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" /></svg>
+      </div>
+      <div class="video-details">
+        <h4 class="video-title">Video Title</h4>
+        <p class="video-hint">Why this video relates...</p>
+      </div>
+    </a>
+  </template>
+
+  <script src="sidepanel.js"></script>
+</body>
+</html>
